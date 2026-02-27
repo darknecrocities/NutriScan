@@ -1,47 +1,106 @@
-# NutriScan
+# 🚀 NutriScan: Hybrid AI Nutrition Manager
 
-NutriScan is a hybrid AI-powered fitness and nutrition management app built with Flutter and a Python backend.
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
+[![MLKit](https://img.shields.io/badge/Google%20ML%20Kit-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://developers.google.com/ml-kit)
 
-## Architecture
+NutriScan is a next-generation mobile fitness and nutrition application that eliminates the friction of manual food logging. Built for performance and accuracy, it uses a **Hybrid AI Architecture** to provide real-time calorie and macro estimates.
 
-- **Frontend:** Flutter
-- **Backend:** FastAPI (Python)
-- **AI Integration:** Google Gemini (Image Analysis), MLKit (Barcode Scanning)
-- **Data Source:** Open Food Facts API (Barcode Lookup)
+---
 
-## Getting Started
+## 🧠 The Hybrid AI Brain
 
-### Backend Setup
+NutriScan doesn't just scan; it *reasons*. Our multi-stage pipeline handles everything from packaged goods to complex prepared meals.
 
-1. Navigate to the `backend` directory.
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Or venv\Scripts\activate on Windows
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Create a `.env` file based on `.env.example` and add your `GEMINI_API_KEY`.
-5. Start the server:
-   ```bash
-   python main.py
-   ```
+### 🔬 Core Algorithms
+1.  **Input-Type Detection**: Smart switching between barcode and image recognition.
+2.  **Barcode Recognition**: Fast decoding via **MLKit** + **Open Food Facts API** for precision global product lookups.
+3.  **Image Recognition**: Powered by **Google Gemini 1.5 Flash**, providing vision-based reasoning for meals without barcodes.
+4.  **Feedback Loop**: Learns from user corrections to improve future classification accuracy.
 
-### Frontend Setup (Flutter)
+---
 
-1. Ensure you have Flutter installed.
-2. Run `flutter pub get`.
-3. Update `lib/providers/food_provider.dart` with your backend server's IP address if running on a physical device.
-4. Run the app:
-   ```bash
-   flutter run
-   ```
+## 🛠️ Architecture Overview
 
-## Features
+```mermaid
+graph TD
+    A[Mobile App - Flutter] --> B{Input Type}
+    B -- Barcode --> C[Barcode Pipeline]
+    B -- Photo --> D[Image Recognition Pipeline]
+    
+    C --> E[Open Food Facts API]
+    D --> F[FastAPI Backend]
+    F --> G[Google Gemini API]
+    
+    E --> H[Calorie & Macro Logs]
+    G --> H
+    H --> I[Dashboard UI]
+```
 
-- [x] Barcode Scanning (MLKit + Open Food Facts)
-- [x] Image Recognition (Gemini AI for prepared meals)
-- [x] Daily Calorie Dashboard
-- [x] Detailed Food Logging with AI explanations
+---
+
+## ✨ Features
+
+-   📸 **Intelligent Scanning**: Seamlessly toggle between barcode and camera capture.
+-   🔥 **Real-time Stats**: Instant breakdown of Calories, Protein, Carbs, and Fats.
+-   💡 **AI Explanations**: Gemini provides natural language reasoning for its nutritional estimates.
+-   📊 **History & Trends**: Track your nutrition over time with a clean, Material 3 interface.
+-   🌙 **Premium UI**: Modern dark mode support and smooth micro-animations.
+
+---
+
+## 🚀 Installation & Setup
+
+### ⚡ Backend (Python 3.10+)
+1.  **Clone & Navigate**:
+    ```bash
+    cd backend
+    ```
+2.  **Virtual Env**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    ```
+3.  **Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **Environment Variables**:
+    Create a `.env` file:
+    ```env
+    GEMINI_API_KEY=your_key_here
+    ```
+5.  **Run**:
+    ```bash
+    python main.py
+    ```
+
+### 📱 Frontend (Flutter)
+1.  **Get Packages**:
+    ```bash
+    flutter pub get
+    ```
+2.  **Configure API**:
+    Update the `BACKEND_URL` in `lib/providers/food_provider.dart` if testing on a physical device.
+3.  **Launch**:
+    ```bash
+    flutter run
+    ```
+
+---
+
+## 🧪 Technology Stack
+
+-   **Frontend**: Flutter (Dart)
+-   **Backend**: FastAPI (Python)
+-   **Vision AI**: Google Gemini 1.5 Flash
+-   **Scanning**: Google ML Kit Barcode Scanning
+-   **Database**: Firebase Firestore (Recommended)
+-   **API Data**: Open Food Facts
+
+---
+
+## 📜 License & Thesis
+Developed as a high-fidelity prototype for NutriScan Mobile App thesis. 
+Designed for scalability, performance, and ISO/IEC 25010 compliance.
