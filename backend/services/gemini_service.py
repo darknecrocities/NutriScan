@@ -15,7 +15,7 @@ async def analyze_food_image(image_bytes: bytes):
     if not GEMINI_API_KEY:
         return {"error": "Gemini API Key not configured"}
 
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-3-flash-preview')
     
     # Load image from bytes
     image = Image.open(io.BytesIO(image_bytes))
